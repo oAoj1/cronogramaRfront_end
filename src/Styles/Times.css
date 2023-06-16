@@ -1,0 +1,49 @@
+.morningList li,
+.afternoonList li,
+.nightList li{
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.timesWraper{
+    display: flex;
+}
+
+.timesWraper ul h2{
+    text-align: center;
+    font-size: 2em;
+}
+
+.timesWraper ul{
+    list-style-type: none;
+}
+
+.timesWraper ul li{
+    margin: 1rem;
+}
+
+.manha,
+.tarde,
+.noite{
+    border: 1px solid #ccc;
+}
+
+.manha li,
+.tarde li,
+.noite li{
+    font-size: 0.85rem;
+}
+
+.manha h2,
+.tarde h2,
+.noite h2{
+    padding: 0 1rem;
+}
+
+@media screen and (max-width:768px){
+
+    .timesWraper{
+        flex-direction: column;
+    }
+    
+}

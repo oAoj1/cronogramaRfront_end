@@ -1,0 +1,96 @@
+.addTaskButton button{
+    transition: 0.2s;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0;
+}
+
+.addTaskButton button svg{
+    transition: 0.2s;
+    cursor: pointer;
+    display: flex;
+    font-size: 3rem;
+}
+
+.addTaskButton button:hover{
+    background-color: rgba(204, 204, 204,0.6);
+}
+
+.addTaskContainer,
+.editTaskContainer{
+    width: 100%;
+    display: grid;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.formAddTask,
+.formEditTask{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background-color: #e0dede;
+    border-radius: 20px;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+}
+
+.formAddTask h3,
+.formEditTask h3{
+    font-size: 2em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.formAddTask input,
+.formAddTask select,
+.formAddTask button,
+.formEditTask input,
+.formEditTask select,
+.formEditTask button{
+    width: 100%;
+    border: 1px solid #000;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    outline: 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.formAddTask select,
+.formAddTask button,
+.formEditTask select,
+.formEditTask button{
+    cursor: pointer;
+}
+
+.formAddTask button,
+.formEditTask button{
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.formAddTask button:hover,
+.formEditTask button:hover{
+    background-color: #595959;
+    color: #ccc;
+}
+
+.addTaskContainer button,
+.editTaskContainer button{
+    font-size: 1.25em;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: 0;
+    transition: 0.2s;
+    border: 1px solid #000;
+}
+
+.addTaskContainer button:hover,
+.editTaskContainer button:hover{
+    background-color: #000;
+    color: #fff;
+}

@@ -1,0 +1,16 @@
+.infoDay{
+    margin: 1rem 0;
+}
+
+.day{
+    font-size: 3em;
+}
+
+.data{
+    font-size: 2.5em;
+    text-decoration: underline;
+}
+
+.periodNow{
+    text-align: center;
+}

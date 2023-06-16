@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@100;400;700&family=Kaisei+HarunoUmi:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kaisei HarunoUmi','Anybody',Arial, Helvetica, sans-serif;
+}
+
+.dayTodayContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.daysFormat,
+.annotationsFormat{
+    margin: 0 1rem;
+}
+
+.annotationsFormat{
+    border: 1px solid #cccc;
+    padding: 0.25rem;
+}
+
+.infoDay{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoDay .day{
+    font-size: 3em;
+}
+
+.dataPeriodWraper{
+    margin-left: 1rem;
+}
+
+.chooseDayContainer{
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chooseDayList{
+    list-style-type: none;
+    display: flex;
+}
+
+.chooseDayList li{
+    padding: 0 1rem;
+}
+
+.chooseDayList li a button{
+    font-size: 1.25em;
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width:900px){
+
+    .dayTodayContainer{
+        flex-direction: column;
+    }
+
+    .daysFormat{
+        display: flex;
+        margin: 2rem auto;
+    }
+
+    .annotationsFormat{
+        display: flex;
+        margin: 2rem auto;
+    }
+    
+}

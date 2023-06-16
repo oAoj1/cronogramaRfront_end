@@ -1,0 +1,179 @@
+.addAnnotationButton button{
+    transition: 0.2s;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0;
+}
+
+.addAnnotationButton button svg{
+    transition: 0.2s;
+    cursor: pointer;
+    display: flex;
+    font-size: 3rem;
+}
+
+.addAnnotationButton button:hover{
+    background-color: rgba(204, 204, 204,0.6);
+}
+
+.addAnnotationContainer,
+.editAnnotationContainer{
+    width: 100%;
+    display: grid;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.formAddAnnotation,
+.formEditAnnotation{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background-color: #e0dede;
+    border-radius: 20px;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+}
+
+.formAddAnnotation h3,
+.formEditAnnotation h3{
+    font-size: 2em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.formAddAnnotation input,
+.formAddAnnotation select,
+.formAddAnnotation button,
+.formEditAnnotation input,
+.formEditAnnotation select,
+.formEditAnnotation button{
+    width: 100%;
+    border: 1px solid #000;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    outline: 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.formAddAnnotation select,
+.formAddAnnotation button,
+.formEditAnnotation select,
+.formEditAnnotation button{
+    cursor: pointer;
+}
+
+.formAddAnnotation button,
+.formEditAnnotation button{
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.formAddAnnotation button:hover,
+.formEditAnnotation button:hover{
+    background-color: #595959;
+    color: #ccc;
+}
+
+.addAnnotationContainer button,
+.editAnnotationContainer button{
+    font-size: 1.25em;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: 0;
+    transition: 0.2s;
+    border: 1px solid #000;
+}
+
+.addAnnotationContainer button:hover,
+.editAnnotationContainer button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.titleAnnotations{
+    display: flex;
+    align-items: center;
+}
+
+.titleAnnotations h2,
+.titleAnnotations svg{
+    margin: 0 0.5rem;
+}
+
+.titleAnnotations h2{
+    text-decoration: underline;
+}
+
+.titleAnnotations svg{
+    cursor: pointer;
+    font-size: 2rem;
+    transition: 0.5s;
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.titleAnnotations svg:hover{
+    background-color: #00ffff;
+    transform: rotate(360deg);
+}
+
+.buttonsAnnotationsContainer{
+    margin: 0 1rem;
+}
+
+.buttonsAnnotationsContainer button{
+    background-color: transparent;
+    border: 0;
+}
+
+.buttonsAnnotationsContainer button svg{
+    font-size: 1.25rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.editarAnotacao:hover{
+    color: #00ffff;
+}
+
+.excluirAnotacao:hover{
+    color: #ff1e00;
+}
+
+.backPage{
+    margin: 1rem 0;
+}
+
+.backPage button{
+    width: 100%;
+    cursor: pointer;
+    font-size: 2em;
+    transition: 0.2s;
+    border: 1px solid #ccc;
+}
+
+.backPage button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.anotacoesLista{
+    list-style-type: none;
+    text-transform: capitalize;
+}
+
+.anotacoesLista li{
+    margin: 0.75rem 0.85rem;
+    border: 1px solid #cccc;
+    padding: 0.5rem;
+}
+
+.anotacao{
+    display: flex;
+}
