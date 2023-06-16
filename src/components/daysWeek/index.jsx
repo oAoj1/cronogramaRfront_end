@@ -1,3 +1,4 @@
+import '../../Styles/DaysWeek.css'
 import api from '../../services/api.js'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { MdEdit } from 'react-icons/md'
@@ -26,26 +27,23 @@ export default function DayTodayWeek({tipoTarefa,nomeTarefa,diaSemana,id}){
     }
 
     return(
-        <section 
-            className='dayTodayContainer' 
-            draggable 
-            onDragStart={(e) => handleDrag(e, "Widget A")}
-        >
-            <h5>{tipoTarefa}</h5>
-            <h3>{nomeTarefa}</h3>
+        <section className='dayTodayContainer'>
+            <div className='dayTodayWraper'>
+                <h5>{tipoTarefa}</h5>
+                <h3>{nomeTarefa}</h3>
 
-            <Link to={`/${diaSemana}/${id}`}>
-                <button title='Editar'>
-                    <MdEdit/>
-                </button>
-            </Link>
+                <div className='buttonsContainer'>
+                    <Link to={`/${diaSemana}/${id}`}>
+                        <button title='Editar'>
+                            <MdEdit/>
+                        </button>
+                    </Link>
 
-            <button 
-                onClick={e => excluirTarefa(e._id)} 
-                title='Excluir'
-            >
-                <BsFillTrashFill/>
-            </button>
+                    <button onClick={e => excluirTarefa(e._id)} title='Excluir'>
+                        <BsFillTrashFill/>
+                    </button>
+                </div>
+            </div>
         </section>
     )
 }

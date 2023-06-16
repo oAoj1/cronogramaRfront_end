@@ -7,6 +7,25 @@
     font-family: 'Kaisei HarunoUmi','Anybody',Arial, Helvetica, sans-serif;
 }
 
+.logContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.logContainer button{
+    width: 100px;
+    font-size: 1em;
+    padding: 5px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: 0.2s;
+}
+.logContainer button:hover{
+    background-color: #000;
+    color: #ffff;
+}
+
 .dayTodayContainer{
     display: flex;
     align-items: center;
