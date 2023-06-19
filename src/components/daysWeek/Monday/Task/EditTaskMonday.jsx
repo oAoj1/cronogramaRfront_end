@@ -1,23 +1,11 @@
-import api from "../../../../services/api"
+import api from '../../../../services/api.js'
 import { useEffect, useState } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom"
+import TypeTasksList from '../../../inputs/typeTasksList'
+import NameInput from '../../../inputs/nameInput'
+import DaysList from '../../../inputs/daysList'
 
 export default function EditTaskMonday(){
-
-    const TiposTarefas = [
-        '',
-        'exercicio',
-        'estudar',
-        'entreterimento',
-        'domestico'
-    ]
-
-    const PeriodosDias = [
-        '',
-        'manha',
-        'tarde',
-        'noite'
-    ]
 
     const navigate = useNavigate()
     const {id} = useParams()
@@ -26,8 +14,12 @@ export default function EditTaskMonday(){
     useEffect(() => {
         async function editandoTarefa(){
             await api.get(`/segunda/${id}`)
-            .then(res => setListaTarefasSegunda(res.data))
-            .catch(err => console.log(err))
+            .then(res => 
+                setListaTarefasSegunda(res.data)
+            )
+            .catch(err => 
+                console.log(err)
+            )
         }
 
         editandoTarefa()
@@ -55,42 +47,24 @@ export default function EditTaskMonday(){
                 className="formEditTask"
             >
                 <h3>Periodo do dia:</h3>
-                <select 
-                    required
-                    value={listaTarefasSegunda.periodoDia}
-                    onChange={e => setListaTarefasSegunda({
-                        ...listaTarefasSegunda,periodoDia:e.target.value
-                })}>
-                    {PeriodosDias.map(periodos => (
-                        <option key={periodos}>
-                            {periodos}
-                        </option>
-                    ))}
-                </select>
+                <DaysList
+                    setFuncao={setListaTarefasSegunda}
+                    dados={listaTarefasSegunda}
+                    valor={listaTarefasSegunda.periodoDia}
+                />
 
                 <h3>Tipo de tarefa:</h3>
-                <select 
-                    required 
-                    value={listaTarefasSegunda.tipoTarefa}
-                    onChange={e => setListaTarefasSegunda({
-                    ...listaTarefasSegunda,tipoTarefa:e.target.value
-                })}>
-                    {TiposTarefas.map(tipo => (
-                        <option key={tipo}>
-                            {tipo}
-                        </option>
-                    ))}
-                </select>
+                <TypeTasksList
+                    setFuncao={setListaTarefasSegunda}
+                    dados={listaTarefasSegunda}
+                    valor={listaTarefasSegunda.tipoTarefa}
+                />
 
                 <h3>Nome da tarefa:</h3>
-                <input
-                    required 
-                    type="text" 
-                    value={listaTarefasSegunda.nomeTarefa}
-                    placeholder="Nome da tarefa"
-                    onChange={e => setListaTarefasSegunda({
-                        ...listaTarefasSegunda, nomeTarefa:e.target.value
-                    })}
+                <NameInput
+                    setFuncao={setListaTarefasSegunda}
+                    dados={listaTarefasSegunda}
+                    valor={listaTarefasSegunda.nomeTarefa}
                 />
 
                 <br/>
