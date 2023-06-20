@@ -37,7 +37,7 @@ export default function InfoDay(){
               diaHoje = 'Sábado'
           }
 
-          setDia(data)
+          setDia(diaHoje)
         }
     
         async function lerData(){
@@ -46,7 +46,7 @@ export default function InfoDay(){
 
           let dataCompleta = `${dia}/${mes}`
 
-          setData(data)
+          setData(dataCompleta)
         }
     
         async function lerPeriodoAgora(){
@@ -67,7 +67,7 @@ export default function InfoDay(){
 
           }
 
-          setPeriodoAgora(data)
+          setPeriodoAgora(periodoAgora)
         }
     
         lerDia()
