@@ -25,7 +25,7 @@ import AnnotationsFriday from '../components/daysWeek/Friday/Annotations/Annotat
 
 export default function DayToday(){
 
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { isAuthenticated, isLoading } = useAuth0();
 
     if (isLoading) {
       return <div>Loading ...</div>;
@@ -34,11 +34,35 @@ export default function DayToday(){
     const [dia,setDia] = useState('')
 
     useEffect(() => {
-        async function lerDia(){
-          const response = await api.get('/tempo/dia')
-          const data = response.data
+        var data = new Date()
 
-          setDia(data)
+        async function lerDia(){
+            let diaHoje = data.getDay()
+
+            if(diaHoje == 0){
+                diaHoje = 'Domingo'
+            }
+            if(diaHoje == 1){
+                diaHoje = 'Segunda-feira'
+            }
+            if(diaHoje == 2){
+                diaHoje = 'Terça-feira'
+            }
+            if(diaHoje == 3){
+                diaHoje = 'Quarta-feira'
+            }
+            if(diaHoje == 4){
+                diaHoje = 'Quinta-feira'
+            }
+            if(diaHoje == 5){
+                diaHoje = 'Sexta-feira'
+            }
+            if(diaHoje == 6){
+                diaHoje = 'Sábado'
+            }
+
+            setDia(diaHoje)
+
         }
 
         lerDia()

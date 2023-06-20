@@ -5,11 +5,7 @@ import { MdEdit } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 export default function DayTodayWeek({tipoTarefa,nomeTarefa,diaSemana,id}){
-
-    function handleDrag(e){
-        e.dataTransfer.set
-    }
-
+    
     async function excluirTarefa(){
         const confirmar = window.confirm('Deseja excluir tarefa?')
 
