@@ -1,9 +1,12 @@
 import DayTodayWeek from '../..'
-import { useEffect,useState } from "react"
+import { useEffect,useState,useRef } from "react"
 import api from "../../../../services/api"
+import { DragDropContext,Droppable,Draggable } from 'react-beautiful-dnd'
 
 export default function AllTimesWednesday(){
 
+    const draggableRef = useRef(null)
+    const innerRef = useRef(null)
     const [manhaQuarta,setManhaQuarta] = useState([])
     const [tardeQuarta,setTardeQuarta] = useState([])
     const [noiteQuarta,setNoiteQuarta] = useState([])
@@ -38,21 +41,21 @@ export default function AllTimesWednesday(){
 
     return(
         <div className="allTimes">
-
             <div className="timesWraper">
+
                 <ul className="manha">
                     <h2>Manhã</h2>
-                    {manhaQuarta.map(manha => (
+
+                    {manhaQuarta.map((manha,index) => (
                         <li key={manha._id}>
                             <DayTodayWeek
                                 id={manha._id}
                                 diaSemana='quarta'
                                 tipoTarefa={manha.tipoTarefa}
                                 nomeTarefa={manha.nomeTarefa}
-                                tarefaConcluida={manha.tarefaConcluida}
                             />
                         </li>
-                    ))}
+                    ))}              
                 </ul>
 
                 <ul className="tarde">
@@ -64,7 +67,7 @@ export default function AllTimesWednesday(){
                                 diaSemana='quarta'
                                 tipoTarefa={tarde.tipoTarefa}
                                 nomeTarefa={tarde.nomeTarefa}
-                            />
+                                />
                         </li>
                     ))}
                 </ul>
@@ -78,7 +81,7 @@ export default function AllTimesWednesday(){
                                 diaSemana='quarta'
                                 tipoTarefa={noite.tipoTarefa}
                                 nomeTarefa={noite.nomeTarefa}
-                            />
+                                />
                         </li>
                     ))}
                 </ul>

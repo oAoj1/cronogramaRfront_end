@@ -5,7 +5,7 @@ import App from './App';
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-<Auth0Provider
+  <Auth0Provider
     domain="dev-zkj0nejknr6g1rua.us.auth0.com"
     clientId="cOGYIT06sPavtxQYYpWqN52mZWpEtjmL"
     authorizationParams={{
