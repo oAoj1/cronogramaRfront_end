@@ -2,7 +2,6 @@ import '../../../Styles/DaysWeek.css'
 import '../../../Styles/Annotations.css'
 import '../../../Styles/Tasks.css'
 import '../../../Styles/Times.css'
-import { GrAddCircle } from 'react-icons/gr'
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import AllTimesTuesday from './Times/AllTimesTuesday'
@@ -38,7 +37,7 @@ export default function Tuesday(){
                 <div className='addTaskButton'>
                     <Link to='/terca/adicionar'>
                         <button>
-                            <GrAddCircle title='Adicionar tarefa'/>
+                            <button>Adicionar tarefa</button>
                         </button>
                     </Link>
                 </div>

@@ -38,7 +38,7 @@ export default function Friday(){
                 <div className='addTaskButton'>
                     <Link to='/sexta/adicionar'>
                         <button>
-                            <GrAddCircle title='Adicionar tarefa'/>
+                            <button>Adicionar tarefa</button>
                         </button>
                     </Link>
                 </div>

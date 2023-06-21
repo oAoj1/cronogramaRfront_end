@@ -38,7 +38,7 @@ export default function Thursday(){
                 <div className='addTaskButton'>
                     <Link to='/quinta/adicionar'>
                         <button>
-                            <GrAddCircle title='Adicionar tarefa'/>
+                            <button>Adicionar tarefa</button>
                         </button>
                     </Link>
                 </div>
