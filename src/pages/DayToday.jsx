@@ -1,9 +1,12 @@
-import '../App.css'
+
+import './PagesDays.css'
 import { useEffect, useState } from 'react'
 
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from '../auth/login.jsx'
 import LogoutButton from '../auth/logout.jsx'
+
+import AllDaysWeek from './AllDaysWeek.jsx'
 
 import api from '../services/api'
 import InfoDay from '../components/infoDay/index.jsx'
@@ -26,12 +29,13 @@ import AnnotationsFriday from '../components/daysWeek/Friday/Annotations/Annotat
 export default function DayToday(){
 
     const { isAuthenticated, isLoading } = useAuth0();
-
+    
     if (isLoading) {
-      return <div>Loading ...</div>;
+        return <div>Loading ...</div>;
     }
-
+    
     const [dia,setDia] = useState('')
+    
 
     useEffect(() => {
         var data = new Date()
@@ -70,39 +74,42 @@ export default function DayToday(){
     },[])
 
     return(
-        <div className='tudoContainer'>
+        <div>
             <InfoDay/>
+
+            {isAuthenticated ? 
+                <div>
+                    <section className="dayTodayContainer">
+                        <div className='daysFormat'>
+                            {dia == 'Segunda-feira' ? <Monday/> :
+                            dia == 'Terça-feira' ? <Tuesday/> : 
+                            dia == 'Quarta-feira' ? <Wednesday/> : 
+                            dia == 'Quinta-feira' ? <Thursday/>  : 
+                            dia == 'Sexta-feira' ? <Friday/> : 
+                            'Descansar'} 
+
+                        </div>
+
+                        <div className='annotationsFormat'>
+                            {dia == 'Segunda-feira' ? <AnnotationsMonday/> :
+                            dia == 'Terça-feira' ? <AnnotationsTuesday/> : 
+                            dia == 'Quarta-feira' ? <AnnotationsWednesday/> : 
+                            dia == 'Quinta-feira' ? <AnnotationsThursday/>  : 
+                            dia == 'Sexta-feira' ? <AnnotationsFriday/> : 
+                            ' '} 
+                        </div>
+
+                    </section> 
+                    <AllDaysWeek/>
+
+                </div>: 
+                    <div className='logContainer'>
+                        <LoginButton/>
+                    </div>}
 
             <div className='logContainer'>
                 <LogoutButton/>
             </div>
-
-            {isAuthenticated ? 
-                <section className="dayTodayContainer">
-                    <div className='daysFormat'>
-                        {dia == 'Segunda-feira' ? <Monday/> :
-                        dia == 'Terça-feira' ? <Tuesday/> : 
-                        dia == 'Quarta-feira' ? <Wednesday/> : 
-                        dia == 'Quinta-feira' ? <Thursday/>  : 
-                        dia == 'Sexta-feira' ? <Friday/> : 
-                        'Descansar'} 
-
-                    </div>
-
-                    <div className='annotationsFormat'>
-                        {dia == 'Segunda-feira' ? <AnnotationsMonday/> :
-                        dia == 'Terça-feira' ? <AnnotationsTuesday/> : 
-                        dia == 'Quarta-feira' ? <AnnotationsWednesday/> : 
-                        dia == 'Quinta-feira' ? <AnnotationsThursday/>  : 
-                        dia == 'Sexta-feira' ? <AnnotationsFriday/> : 
-                        'Descansar'} 
-                    </div>
-
-                </section> : 
-                    <div className='logContainer'>
-                        <LoginButton/>
-                    </div>
-                }
 
         </div>
     )

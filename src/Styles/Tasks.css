@@ -18,8 +18,6 @@
 
 .addTaskContainer,
 .editTaskContainer{
-    width: 100%;
-    display: grid;
     margin: 1rem 0;
     justify-content: center;
 }

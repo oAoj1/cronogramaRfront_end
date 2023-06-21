@@ -1,0 +1,54 @@
+.dayTodayContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.daysFormat,
+.annotationsFormat{
+    margin: 1rem;
+}
+
+.annotationsFormat{
+    border: 1px solid #cccc;
+    padding: 0.25rem;
+}
+
+.allDaysWeekList{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto 2rem auto;
+}
+
+.allDaysWeekList li{
+    padding: 0 1rem;
+}
+
+.allDaysWeekList li a button{
+    font-size: 1.25em;
+    padding: 0.5rem;
+    border-radius: 3px 10px 3px 10px;
+    border: 1px solid #cccc;
+    background-color: #fff;
+    transition: 0.2s;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.allDaysWeekList li a button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+@media screen and (max-width:768px){
+    .allDaysWeekList{
+        flex-direction: column;
+        margin: 0.5rem auto 1.55rem auto;
+    }
+    .allDaysWeekList li{
+        padding:0.5rem 1rem;
+    }
+}

@@ -1,4 +1,5 @@
 import './App.css'
+import { useEffect,useState } from 'react'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import DayToday from './pages/DayToday'
 
@@ -33,8 +34,61 @@ import AddAnnotationsFriday from './components/daysWeek/Friday/Annotations/AddAn
 import EditAnnotationsFriday from './components/daysWeek/Friday/Annotations/EditAnnotationsFriday'
 
 export default function App(){
+
+  const [periodoAgora,setPeriodoAgora] = useState('')
+
+    useEffect(() => {
+        var data = new Date()
+
+        async function lerPeriodoAgora(){
+
+          let hora = data.getHours()
+          var periodoAgora = ''
+
+          if(hora >= 0 && hora <= 5){
+              periodoAgora = 'Madrugada'
+              
+          }else if(hora >= 6 && hora <= 11){
+              periodoAgora = 'Manhã'
+              
+          }else if(hora >= 12 && hora <= 17){
+              periodoAgora = 'Tarde'
+
+          }else if(hora >= 18 && hora <= 23){
+              periodoAgora = 'Noite'
+
+          }
+
+          setPeriodoAgora(periodoAgora)
+
+      }
+
+      lerPeriodoAgora()
+
+      let html = document.getElementById('html')
+
+      if(periodoAgora == 'Manhã'){
+          html.style.background = '#00ffff'
+          html.style.color = '#000'
+
+      }else if(periodoAgora == 'Tarde'){
+          html.style.background = '#fa9405'
+          html.style.color = '#000'
+
+      }else if(periodoAgora == 'Noite'){
+          html.style.background = '#0e11c9'
+          html.style.color = '#fff'
+          
+      }else if(periodoAgora == 'Madrugada'){
+          html.style.background = '#000'    
+          html.style.color = '#fff'
+      
+      }
+
+  },[periodoAgora])
+
   return(
-    <div className="App">
+    <div className="App" id='App'>
       <Router>
         <Routes>
           

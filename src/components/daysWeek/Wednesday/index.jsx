@@ -34,11 +34,9 @@ export default function Wednesday(){
                     </select>
                 </div>
 
-                <div className='addTaskButton'>
+                <div className='addTaskContainer'>
                     <Link to='/quarta/adicionar'>
-                        <button>
-                            <button>Adicionar tarefa</button>
-                        </button>
+                        <button>Adicionar tarefa</button>
                     </Link>
                 </div>
 

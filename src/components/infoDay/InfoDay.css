@@ -1,9 +1,28 @@
 .infoDay{
-    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
-.day{
-    font-size: 3em;
+.infoWraper{
+    display: flex;
+    align-items: center;
+}
+
+.dataPeriodWraper{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.dataPeriodWraper svg{
+    margin-left: 1rem;
+    font-size: 2rem;
+}
+
+.infoWraper .day{
+    font-size: 4em;
+    margin-right: 2rem;
 }
 
 .data{
@@ -13,4 +32,27 @@
 
 .periodNow{
     text-align: center;
+    display: flex;
+    font-size: 2.25em;
+    align-items: center;
+}
+
+@media screen and (max-width:768px){
+    .infoWraper{
+        padding: 1rem;
+    }
+    
+    .infoWraper .day{
+        margin-right: 1rem;
+        font-size:2.5em;
+    }
+
+    .infoWraper .data{
+        font-size: 1.5em;
+    }
+
+    .dataPeriodWraper svg{
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
+    }
 }

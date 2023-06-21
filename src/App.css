@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Kaisei HarunoUmi','Anybody',Arial, Helvetica, sans-serif;
+    font-family: 'Kaisei HarunoUmi','Anybody', Arial, Helvetica, sans-serif;
 }
 
 .logContainer{
@@ -13,48 +13,18 @@
 }
 
 .logContainer button{
-    width: 100px;
-    font-size: 1em;
+    width: 150px;
+    font-size: 2em;
     padding: 5px;
     margin: 0.25rem 0;
     cursor: pointer;
     border: 1px solid #ccc;
     transition: 0.2s;
 }
+
 .logContainer button:hover{
     background-color: #000;
     color: #ffff;
-}
-
-.dayTodayContainer{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-}
-
-.daysFormat,
-.annotationsFormat{
-    margin: 0 1rem;
-}
-
-.annotationsFormat{
-    border: 1px solid #cccc;
-    padding: 0.25rem;
-}
-
-.infoDay{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.infoDay .day{
-    font-size: 3em;
-}
-
-.dataPeriodWraper{
-    margin-left: 1rem;
 }
 
 .chooseDayContainer{

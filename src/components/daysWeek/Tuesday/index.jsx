@@ -34,11 +34,9 @@ export default function Tuesday(){
                     </select>
                 </div>
 
-                <div className='addTaskButton'>
+                <div className='addTaskContainer'>
                     <Link to='/terca/adicionar'>
-                        <button>
-                            <button>Adicionar tarefa</button>
-                        </button>
+                        <button>Adicionar tarefa</button>
                     </Link>
                 </div>
 
