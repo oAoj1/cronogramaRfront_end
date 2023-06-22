@@ -60,7 +60,8 @@ export default function AnootationsThursday(){
 
                                 <button 
                                     onClick={() => excluirAnotacoes(anotacoes._id)} 
-                                    title='Excluir'>
+                                    title='Excluir'
+                                >
                                     <BsFillTrashFill/>
                                 </button>
                             </div>
