@@ -28,6 +28,7 @@
 }
 
 .dayTodayWraper h3{
+    max-width: 300px;
     font-size: 1.75em;
     text-transform: capitalize;
 }
