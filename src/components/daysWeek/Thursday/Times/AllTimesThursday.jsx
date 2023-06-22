@@ -60,7 +60,8 @@ export default function AllTimesThursday(){
                 periodoAgora = 'Noite'
 
             }
-                setPeriodoAgora(periodoAgora)
+
+            setPeriodoAgora(periodoAgora)
 
         }
 
@@ -72,15 +73,24 @@ export default function AllTimesThursday(){
 
         if(periodoAgora == 'Manhã'){
             manha.style.background = '#6ef02e'
-        
+            manha.style.border = '1px solid #000'
+
+            tarde.style.background = 'transparent'
+            noite.style.background = 'transparent'
+
         }else if(periodoAgora == 'Tarde'){
             tarde.style.background = '#6ef02e'
-            
-            
+            tarde.style.border = '1px solid #000'
+
+            manha.style.background = 'trasparent'
+            noite.style.background = 'transparent'
+
         }else if(periodoAgora == 'Noite'){
             noite.style.background = '#6ef02e'
-        
-        
+            noite.style.border = '1px solid #fff'
+            manha.style.background = 'trasparent'
+            tarde.style.background = 'transparent'
+
         }else{
             manha.style.background = 'transparent'
             tarde.style.background = 'transparent'

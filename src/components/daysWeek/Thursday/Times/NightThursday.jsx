@@ -16,10 +16,31 @@ export default function NightThursday(){
 
         lerNoiteQuinta()
 
+        var data = new Date()
+        let hora = data.getHours()
+        let tarde = document.getElementById('tarde')
+  
+        if(hora >= 18 && hora <= 23){
+            noite.style.background = '#6ef02e'
+            tarde.style.border = '1px solid #000'
+            
+        }else{
+            noite.style.background = 'tranparent'
+            noite.style.border = '1px solid #fff'
+
+        }
+
     },[])
 
     return(
-        <ul className='morningList'>
+        <ul className='nightList' id='noite'>
+            <h2 style={{
+                textAlign:'center',
+                fontSize:'2.5em',
+                margin:'1rem 0 2rem 0'
+            }}>
+                Noite
+            </h2>
             {noiteQuinta.map(noite => (
                 <li key={noite._id}>
                     <DayTodayWeek

@@ -1,8 +1,7 @@
 .morningList li,
 .afternoonList li,
 .nightList li{
-    padding: 1rem;
-    border: 1px solid #ccc;
+    padding: 0 2rem;
 }
 
 .timesWraper{
@@ -25,6 +24,7 @@
 .manha,
 .tarde,
 .noite{
+    margin: 0 0.25rem;
     border: 1px solid #ccc;
 }
 
@@ -37,7 +37,7 @@
 .manha h2,
 .tarde h2,
 .noite h2{
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 @media screen and (max-width:768px){
