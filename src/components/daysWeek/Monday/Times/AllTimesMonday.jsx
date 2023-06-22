@@ -49,6 +49,7 @@ export default function AllTimesMonday(){
                                 diaSemana='segunda'
                                 tipoTarefa={manha.tipoTarefa}
                                 nomeTarefa={manha.nomeTarefa}
+                                concluido={manha.concluido}
                             />
                         </li>
 

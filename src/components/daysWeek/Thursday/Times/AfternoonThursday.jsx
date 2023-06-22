@@ -48,6 +48,7 @@ export default function AftenoonThursday(){
                         diaSemana='quinta'
                         tipoTarefa={tarde.tipoTarefa}
                         nomeTarefa={tarde.nomeTarefa}
+                        concluido={tarde.concluido}
                     />
                 </li>
             ))}

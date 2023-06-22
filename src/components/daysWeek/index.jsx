@@ -1,8 +1,8 @@
 import '../../Styles/DaysWeek.css'
-import { useState } from 'react'
 import api from '../../services/api.js'
+import { useState,useEffect } from 'react'
 import { BsFillTrashFill,BsPatchCheck } from 'react-icons/bs'
-import { MdEdit } from 'react-icons/md'
+import { MdEdit,MdPriorityHigh } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 export default function DayTodayWeek({tipoTarefa,nomeTarefa,diaSemana,id,concluido}){
@@ -42,12 +42,33 @@ export default function DayTodayWeek({tipoTarefa,nomeTarefa,diaSemana,id,conclui
         }
     }
 
+    useEffect(() => {
+        var data = new Date()
+        var diaHoje = data.getDay()
+        
+        if(diaHoje == 7){
+            diaHoje = 'Domingo'
+            concluido = false
+        }
+
+    },[])
+
     return(
         <section className='dayTodayContainer'>
 
-            {concluido == true ? 'tarefa concluida' : 
-                <button onClick={e => concluirTarefa(e._id)}>
-                    <BsPatchCheck/>
+            {concluido == true ? 
+                <button 
+                    className='botaoMarcarConcluir'
+                    title='Tarefa concluida!'
+                >
+                    <BsPatchCheck/> 
+                </button>: 
+                <button 
+                    onClick={e => concluirTarefa(e._id)}    
+                    className='botaoConcluida'
+                    title='Concluir'
+                >
+                    <MdPriorityHigh/>
                 </button>
             }
 

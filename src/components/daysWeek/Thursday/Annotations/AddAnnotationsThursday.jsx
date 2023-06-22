@@ -20,11 +20,10 @@ export default function AddAnnotationsThursday(){
                 navigate('/')
             })
             .catch(err => {
-                alert('Erro ao anotação tarefa, cofira o console')
+                alert('Erro ao anotar tarefa, confira o console')
                 console.log(err)
             })
     }
-    
 
     return(
         <div className="addTaskContainer">

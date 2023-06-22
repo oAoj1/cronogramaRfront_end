@@ -48,6 +48,7 @@ export default function NightThursday(){
                         diaSemana='quinta'
                         tipoTarefa={noite.tipoTarefa}
                         nomeTarefa={noite.nomeTarefa}
+                        concluido={noite.concluido}
                     />
                 </li>
             ))}

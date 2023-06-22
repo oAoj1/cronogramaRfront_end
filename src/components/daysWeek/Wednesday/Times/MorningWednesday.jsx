@@ -27,6 +27,7 @@ export default function MorningWednesday(){
                         diaSemana='quarta'
                         tipoTarefa={manha.tipoTarefa}
                         nomeTarefa={manha.nomeTarefa}
+                        concluido={manha.concluido}
                     />
                 </li>
             ))}

@@ -27,6 +27,7 @@ export default function MorningMonday(){
                         diaSemana='segunda'
                         tipoTarefa={manha.tipoTarefa}
                         nomeTarefa={manha.nomeTarefa}
+                        concluido={manha.concluido}
                     />
                 </li>
             ))}

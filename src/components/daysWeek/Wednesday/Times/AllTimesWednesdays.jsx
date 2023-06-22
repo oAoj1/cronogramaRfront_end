@@ -53,6 +53,7 @@ export default function AllTimesWednesday(){
                                 diaSemana='quarta'
                                 tipoTarefa={manha.tipoTarefa}
                                 nomeTarefa={manha.nomeTarefa}
+                                concluido={manha.concluido}
                             />
                         </li>
                     ))}              
@@ -67,7 +68,8 @@ export default function AllTimesWednesday(){
                                 diaSemana='quarta'
                                 tipoTarefa={tarde.tipoTarefa}
                                 nomeTarefa={tarde.nomeTarefa}
-                                />
+                                concluido={tarde.concluido}
+                            />
                         </li>
                     ))}
                 </ul>
@@ -81,7 +83,8 @@ export default function AllTimesWednesday(){
                                 diaSemana='quarta'
                                 tipoTarefa={noite.tipoTarefa}
                                 nomeTarefa={noite.nomeTarefa}
-                                />
+                                concluido={noite.concluido}
+                            />
                         </li>
                     ))}
                 </ul>

@@ -103,6 +103,24 @@
     justify-content: center;
 }
 
+.botaoMarcarConcluir,
+.botaoConcluida{
+    border: 0;
+    background: transparent;
+    margin-right: 0.5rem;
+}
+
+.botaoMarcarConcluir svg,
+.botaoConcluida svg{
+    font-size: 2rem;
+    transition: 0.2s;
+}
+
+.botaoConcluida svg:hover{
+    color: #ff1e00;
+    cursor: pointer;
+}
+
 @media screen and (max-width:768px){
 
     .buttonsContainer{

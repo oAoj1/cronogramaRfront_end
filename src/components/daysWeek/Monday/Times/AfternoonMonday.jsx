@@ -27,6 +27,7 @@ export default function AftenoonMonday(){
                         diaSemana='segunda'
                         tipoTarefa={tarde.tipoTarefa}
                         nomeTarefa={tarde.nomeTarefa}
+                        concluido={tarde.concluido}
                     />
                 </li>
             ))}
