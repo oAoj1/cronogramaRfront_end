@@ -36,11 +36,11 @@ export default function DayToday(){
     
     const [dia,setDia] = useState('')
     
-
     useEffect(() => {
-        var data = new Date()
-
+        
         async function lerDia(){
+            var data = new Date()
+            
             let diaHoje = data.getDay()
 
             if(diaHoje == 0){
