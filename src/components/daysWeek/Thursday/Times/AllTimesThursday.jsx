@@ -88,6 +88,7 @@ export default function AllTimesThursday(){
         }else if(periodoAgora == 'Noite'){
             noite.style.background = '#6ef02e'
             noite.style.border = '1px solid #fff'
+            
             manha.style.background = 'trasparent'
             tarde.style.background = 'transparent'
 
