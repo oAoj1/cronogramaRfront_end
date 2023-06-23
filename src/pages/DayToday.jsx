@@ -1,7 +1,6 @@
 
 import './PagesDays.css'
 import { useEffect, useState } from 'react'
-import {process} from 'dotenv'
 
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from '../auth/login.jsx'
@@ -36,8 +35,6 @@ export default function DayToday(){
     }
 
     const [dia,setDia] = useState('')
-    const [senhaUsuario,setSenhaUsuario] = useState('')
-    const [senhaSistema,setSenhaSistema] = useState('')
 
     useEffect(() => {
 
@@ -64,17 +61,6 @@ export default function DayToday(){
         
     },[])
 
-    useEffect(() => {
-        async function pegarSenhaSistema(){
-            const response = await api.get('/senha')
-            const data = response.data
-            
-            setSenhaSistema(data)
-        }
-
-        pegarSenhaSistema()
-
-    },[])
 
     function enviarSenha(event){
         event.preventDefault()
@@ -84,25 +70,8 @@ export default function DayToday(){
     return(
         <div>
             <InfoDay/>
-
-            <form 
-                onSubmit={enviarSenha} 
-                style={{
-                    margin:'1rem auto',
-                    display:'flex',
-                    justifyContent:'center'
-                }}
-            >
-                <input
-                    type='password'
-                    placeholder='Inserir senha'
-                    onChange={e => setSenhaUsuario(e.target.value)}
-                />
-                <button>Enviar</button>
-            </form>
-
-            {senhaUsuario == senhaSistema ? 
-            isAuthenticated ?
+    
+            {isAuthenticated ?
                 <div>
                     <section className="dayTodayContainer">
                         <div className='daysFormat'>
