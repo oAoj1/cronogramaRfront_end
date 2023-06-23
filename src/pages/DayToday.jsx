@@ -100,7 +100,7 @@ export default function DayToday(){
                 </div>: 
                     <div className='logContainer'>
                         <LoginButton/>
-                    </div> : ''
+                    </div> 
                 }
 
             <div className='logContainer'>

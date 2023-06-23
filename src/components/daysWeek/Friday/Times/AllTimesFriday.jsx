@@ -7,6 +7,7 @@ export default function AllTimesFriday(){
     const [manhaSexta,setManhaSexta] = useState([])
     const [tardeSexta,setTardeSexta] = useState([])
     const [noiteSexta,setNoiteSexta] = useState([])
+    const [periodoAgora,setPeriodoAgora] = useState('')
 
     useEffect(() => {
         async function lerManhaSexta(){
@@ -34,13 +35,45 @@ export default function AllTimesFriday(){
         lerTardeSexta()
         lerNoiteSexta()
 
-    },[])
+        let manha = document.getElementById('manha')
+        let tarde = document.getElementById('tarde')
+        let noite = document.getElementById('noite')
+
+        if(periodoAgora == 'Manhã'){
+            manha.style.background = '#6ef02e'
+            manha.style.border = '1px solid #000'
+
+            tarde.style.background = 'transparent'
+            noite.style.background = 'transparent'
+
+        }else if(periodoAgora == 'Tarde'){
+            tarde.style.background = '#6ef02e'
+            tarde.style.border = '1px solid #000'
+
+            manha.style.background = 'trasparent'
+            noite.style.background = 'transparent'
+
+        }else if(periodoAgora == 'Noite'){
+            noite.style.background = '#6ef02e'
+            noite.style.border = '1px solid #fff'
+            
+            manha.style.background = 'trasparent'
+            tarde.style.background = 'transparent'
+
+        }else{
+            manha.style.background = 'transparent'
+            tarde.style.background = 'transparent'
+            noite.style.background = 'transparent'
+
+        }
+
+    },[periodoAgora])
 
     return(
         <div className="allTimes">
 
             <div className="timesWraper">
-                <ul className="manha">
+                <ul className="manha" id='manha'>
                     <h2>Manhã</h2>
                     {manhaSexta.map(manha => (
                         <li key={manha._id}>
@@ -49,13 +82,12 @@ export default function AllTimesFriday(){
                                 diaSemana='sexta'
                                 tipoTarefa={manha.tipoTarefa}
                                 nomeTarefa={manha.nomeTarefa}
-                                concluido={manha.concluido}
                             />
                         </li>
                     ))}
                 </ul>
 
-                <ul className="tarde">
+                <ul className="tarde" id='tarde'>
                     <h2>Tarde</h2>
                     {tardeSexta.map(tarde => (
                         <li key={tarde._id}>
@@ -64,13 +96,12 @@ export default function AllTimesFriday(){
                                 diaSemana='sexta'
                                 tipoTarefa={tarde.tipoTarefa}
                                 nomeTarefa={tarde.nomeTarefa}
-                                concluido={tarde.concluido}
                             />
                         </li>
                     ))}
                 </ul>
                 
-                <ul className="noite">
+                <ul className="noite" id='noite'>
                     <h2>Noite</h2>
                     {noiteSexta.map(noite => (
                         <li key={noite._id}>
@@ -79,7 +110,6 @@ export default function AllTimesFriday(){
                                 diaSemana='sexta'
                                 tipoTarefa={noite.tipoTarefa}
                                 nomeTarefa={noite.nomeTarefa}
-                                concluido={noite.concluido}
                             />
                         </li>
                     ))}

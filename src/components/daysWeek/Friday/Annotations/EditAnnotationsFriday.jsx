@@ -28,7 +28,7 @@ export default function EditAnnotationsFriday(){
         event.preventDefault()
 
         await api.put(`/sexta/anotacoes/${id}`, listaAnotacoesSexta)
-        .then(res => {
+        .then(() => {
             alert('Tarefa atualizada com sucesso')
             navigate('/')
         })

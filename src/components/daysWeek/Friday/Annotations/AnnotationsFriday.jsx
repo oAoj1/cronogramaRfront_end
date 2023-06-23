@@ -26,7 +26,7 @@ export default function AnnotationsFriday(){
 
         if(confirmar){
             await api.delete(`/sexta/anotacoes/${id}`)
-            .then(res => {
+            .then(() => {
                 alert('Anotação excluida com sucesso! recarregue a página')
             })
             .catch(err => {
