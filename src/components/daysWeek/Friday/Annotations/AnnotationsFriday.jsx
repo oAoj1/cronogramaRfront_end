@@ -10,9 +10,6 @@ import { MdPriorityHigh } from 'react-icons/md'
 export default function AnnotationsFriday(){
 
     const [anotacaoSexta,setAnotacaoSexta] = useState([])
-    const [concluido,setConcluido] = useState([{
-        concluido:''
-    }])
 
     useEffect(() => {
         async function lerAnotacoesSexta(){
@@ -41,33 +38,6 @@ export default function AnnotationsFriday(){
         }
     }
 
-    useEffect(() => {
-        async function filtrarConcluido(){
-            const response = await api.get('/sexta/tipotarefa?tipoTarefa=anotacoes')
-            const data = response.data
-
-            setConcluido(data)
-        }
-
-        filtrarConcluido()
-
-    },[])
-
-    async function concluirTarefa(id){
-        const confirmar = window.confirm('Deseja concluir anotação?')
-
-        if(confirmar){
-            await api.post(`/sexta/anotacoes/${id}`)
-            .then(() => {
-                alert('Anotação concluida! recarregue a página')
-            })
-            .catch(err => {
-                alert('Erro ao concluir anotação, confira o console')
-                console.log(err)
-            })
-        }
-    }
-
     return(
         <div className='annotationsContainer'>
             
@@ -82,21 +52,6 @@ export default function AnnotationsFriday(){
                 {anotacaoSexta.map(anotacoes => (
                     <li key={anotacoes._id}>
                         <div className='anotacao'>
-                            {concluido.concluido == true ? 
-                                <button 
-                                    className='botaoMarcarConcluir'
-                                    title='Tarefa concluida!'
-                                >
-                                    <BsPatchCheck/> 
-                                </button>: 
-                                <button 
-                                    onClick={() => concluirTarefa(anotacoes._id)}    
-                                    className='botaoConcluida'
-                                    title='Concluir'
-                                >
-                                    <MdPriorityHigh/>
-                                </button>
-                            }
                             <span>{anotacoes.nomeTarefa}</span>
 
                             <div className='buttonsAnnotationsContainer'>
