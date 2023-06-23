@@ -48,6 +48,7 @@ export default function MorningFriday(){
                         diaSemana='sexta'
                         tipoTarefa={manha.tipoTarefa}
                         nomeTarefa={manha.nomeTarefa}
+                        concluido={manha.concluido}
                     />
                 </li>
             ))}

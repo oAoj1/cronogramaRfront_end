@@ -7,7 +7,7 @@ export default function AllTimesThursday(){
     const [manhaQuinta,setManhaQuinta] = useState([])
     const [tardeQuinta,setTardeQuinta] = useState([])
     const [noiteQuinta,setNoiteQuinta] = useState([])
-    const [periodoAgora,setPeriodoAgora] = useState([])
+    const [periodoAgora,setPeriodoAgora] = useState('')
 
     useEffect(() => {
         async function lerManhaQuinta(){

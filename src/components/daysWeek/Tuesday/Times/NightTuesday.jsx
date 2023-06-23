@@ -16,10 +16,24 @@ export default function NightTuesday(){
 
         lerNoiteTerca()
 
+        var data = new Date()
+        let hora = data.getHours()
+        let noite = document.getElementById('noite')
+  
+        if(hora >= 18 && hora <= 23){
+            noite.style.background = '#6ef02e'
+            noite.style.border = '1px solid #000'
+            
+        }else{
+            noite.style.background = 'tranparent'
+            noite.style.border = '1px solid #fff'
+
+        }
+
     },[])
 
     return(
-        <ul className='nightList'>
+        <ul className='nightList' id='noite'>
             {noiteTerca.map(noite => (
                 <li key={noite._id}>
                     <DayTodayWeek

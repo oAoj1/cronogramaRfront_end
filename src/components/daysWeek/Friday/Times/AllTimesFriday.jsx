@@ -35,38 +35,67 @@ export default function AllTimesFriday(){
         lerTardeSexta()
         lerNoiteSexta()
 
+        
+    },[])
+    useEffect(() => { 
+        async function lerPeriodoAgora(){
+            var data = new Date()
+
+            let hora = data.getHours()
+            var periodoAgora = ''
+
+            if(hora >= 0 && hora <= 5){
+                periodoAgora = 'Madrugada'
+                
+            }else if(hora >= 6 && hora <= 11){
+                periodoAgora = 'Manhã'
+                
+            }else if(hora >= 12 && hora <= 17){
+                periodoAgora = 'Tarde'
+
+            }else if(hora >= 18 && hora <= 23){
+                periodoAgora = 'Noite'
+
+            }
+
+            setPeriodoAgora(periodoAgora)
+
+        }
+
         let manha = document.getElementById('manha')
         let tarde = document.getElementById('tarde')
         let noite = document.getElementById('noite')
-
+        
         if(periodoAgora == 'Manhã'){
             manha.style.background = '#6ef02e'
             manha.style.border = '1px solid #000'
-
+            
             tarde.style.background = 'transparent'
             noite.style.background = 'transparent'
-
+            
         }else if(periodoAgora == 'Tarde'){
             tarde.style.background = '#6ef02e'
             tarde.style.border = '1px solid #000'
-
+            
             manha.style.background = 'trasparent'
             noite.style.background = 'transparent'
-
+            
         }else if(periodoAgora == 'Noite'){
             noite.style.background = '#6ef02e'
             noite.style.border = '1px solid #fff'
             
             manha.style.background = 'trasparent'
             tarde.style.background = 'transparent'
-
+            
         }else{
             manha.style.background = 'transparent'
             tarde.style.background = 'transparent'
             noite.style.background = 'transparent'
-
+        
         }
 
+        lerPeriodoAgora()
+    
     },[periodoAgora])
 
     return(
@@ -82,6 +111,7 @@ export default function AllTimesFriday(){
                                 diaSemana='sexta'
                                 tipoTarefa={manha.tipoTarefa}
                                 nomeTarefa={manha.nomeTarefa}
+                                concluido={manha.concluido}
                             />
                         </li>
                     ))}
@@ -96,6 +126,7 @@ export default function AllTimesFriday(){
                                 diaSemana='sexta'
                                 tipoTarefa={tarde.tipoTarefa}
                                 nomeTarefa={tarde.nomeTarefa}
+                                concluido={tarde.concluido}
                             />
                         </li>
                     ))}
@@ -110,6 +141,7 @@ export default function AllTimesFriday(){
                                 diaSemana='sexta'
                                 tipoTarefa={noite.tipoTarefa}
                                 nomeTarefa={noite.nomeTarefa}
+                                concluido={noite.concluido}
                             />
                         </li>
                     ))}
