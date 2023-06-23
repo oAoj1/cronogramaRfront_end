@@ -46,7 +46,7 @@ export default function DayTodayWeek({tipoTarefa,nomeTarefa,diaSemana,id,conclui
         var data = new Date()
         var diaHoje = data.getDay()
         
-        if(diaHoje == 7){
+        if(diaHoje == 0){
             diaHoje = 'Domingo'
             concluido = false
         }

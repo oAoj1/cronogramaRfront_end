@@ -18,11 +18,11 @@ export default function NightThursday(){
 
         var data = new Date()
         let hora = data.getHours()
-        let tarde = document.getElementById('tarde')
+        let noite = document.getElementById('noite')
   
         if(hora >= 18 && hora <= 23){
             noite.style.background = '#6ef02e'
-            tarde.style.border = '1px solid #000'
+            noite.style.border = '1px solid #000'
             
         }else{
             noite.style.background = 'tranparent'

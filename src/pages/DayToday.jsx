@@ -1,6 +1,7 @@
 
 import './PagesDays.css'
 import { useEffect, useState } from 'react'
+import {process} from 'dotenv'
 
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from '../auth/login.jsx'
@@ -28,56 +29,80 @@ import AnnotationsFriday from '../components/daysWeek/Friday/Annotations/Annotat
 
 export default function DayToday(){
 
-    const { isAuthenticated, isLoading } = useAuth0();
+    const { isAuthenticated, isLoading } = useAuth0()
     
     if (isLoading) {
-        return <div>Loading ...</div>;
+        return <div>Loading ...</div>
     }
-    
+
     const [dia,setDia] = useState('')
-    
+    const [senhaUsuario,setSenhaUsuario] = useState('')
+    const [senhaSistema,setSenhaSistema] = useState('')
+
     useEffect(() => {
-        
-        async function lerDia(){
-            var data = new Date()
-            
-            let diaHoje = data.getDay()
 
-            if(diaHoje == 0){
-                diaHoje = 'Domingo'
-            }
-            if(diaHoje == 1){
-                diaHoje = 'Segunda-feira'
-            }
-            if(diaHoje == 2){
-                diaHoje = 'Terça-feira'
-            }
-            if(diaHoje == 3){
-                diaHoje = 'Quarta-feira'
-            }
-            if(diaHoje == 4){
-                diaHoje = 'Quinta-feira'
-            }
-            if(diaHoje == 5){
-                diaHoje = 'Sexta-feira'
-            }
-            if(diaHoje == 6){
-                diaHoje = 'Sábado'
-            }
-
-            setDia(diaHoje)
-
+        var data = new Date()
+        let diaHoje = data.getDay()
+    
+        if(diaHoje == 0){
+            diaHoje = 'Domingo'
+        }else if(diaHoje == 1){
+            diaHoje = 'Segunda-feira'
+        }else if(diaHoje == 2){
+            diaHoje = 'Terça-feira'
+        }else if(diaHoje == 3){
+            diaHoje = 'Quarta-feira'
+        }else if(diaHoje == 4){
+            diaHoje = 'Quinta-feira'
+        }else if(diaHoje == 5){
+            diaHoje = 'Sexta-feira'
+        }else if(diaHoje == 6){
+            diaHoje = 'Sábado'
         }
 
-        lerDia()
+        setDia(diaHoje)
+        
+    },[])
+
+    useEffect(() => {
+        async function pegarSenhaSistema(){
+            const response = await api.get('/senha')
+            const data = response.data
+            
+            setSenhaSistema(data)
+        }
+
+        pegarSenhaSistema()
 
     },[])
+
+    function enviarSenha(event){
+        event.preventDefault()
+
+    }
 
     return(
         <div>
             <InfoDay/>
 
-            {isAuthenticated ? 
+            <form 
+                onSubmit={enviarSenha} 
+                style={{
+                    margin:'1rem auto',
+                    display:'flex',
+                    justifyContent:'center'
+                }}
+            >
+                <input
+                    type='password'
+                    placeholder='Inserir senha'
+                    onChange={e => setSenhaUsuario(e.target.value)}
+                />
+                <button>Enviar</button>
+            </form>
+
+            {senhaUsuario == senhaSistema ? 
+            isAuthenticated ?
                 <div>
                     <section className="dayTodayContainer">
                         <div className='daysFormat'>
@@ -96,16 +121,18 @@ export default function DayToday(){
                             dia == 'Quarta-feira' ? <AnnotationsWednesday/> : 
                             dia == 'Quinta-feira' ? <AnnotationsThursday/>  : 
                             dia == 'Sexta-feira' ? <AnnotationsFriday/> : 
-                            ' '} 
+                            ''} 
                         </div>
 
                     </section> 
+
                     <AllDaysWeek/>
 
                 </div>: 
                     <div className='logContainer'>
                         <LoginButton/>
-                    </div>}
+                    </div> : ''
+                }
 
             <div className='logContainer'>
                 <LogoutButton/>
