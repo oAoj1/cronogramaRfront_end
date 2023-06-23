@@ -2,12 +2,17 @@ import api from '../../../../services/api'
 import { useEffect, useState } from 'react'
 import { GrAdd } from 'react-icons/gr'
 import { Link } from 'react-router-dom'
-import { BsFillTrashFill } from 'react-icons/bs'
+import { TiDelete } from 'react-icons/ti'
 import { MdEdit } from 'react-icons/md'
+import { BsPatchCheck } from 'react-icons/bs'
+import { MdPriorityHigh } from 'react-icons/md'
 
 export default function AnnotationsFriday(){
 
     const [anotacaoSexta,setAnotacaoSexta] = useState([])
+    const [concluido,setConcluido] = useState([{
+        concluido:''
+    }])
 
     useEffect(() => {
         async function lerAnotacoesSexta(){
@@ -36,6 +41,33 @@ export default function AnnotationsFriday(){
         }
     }
 
+    useEffect(() => {
+        async function filtrarConcluido(){
+            const response = await api.get('/sexta/tipotarefa?tipoTarefa=anotacoes')
+            const data = response.data
+
+            setConcluido(data)
+        }
+
+        filtrarConcluido()
+
+    },[])
+
+    async function concluirTarefa(id){
+        const confirmar = window.confirm('Deseja concluir anotação?')
+
+        if(confirmar){
+            await api.post(`/sexta/anotacoes/${id}`)
+            .then(() => {
+                alert('Anotação concluida! recarregue a página')
+            })
+            .catch(err => {
+                alert('Erro ao concluir anotação, confira o console')
+                console.log(err)
+            })
+        }
+    }
+
     return(
         <div className='annotationsContainer'>
             
@@ -50,13 +82,29 @@ export default function AnnotationsFriday(){
                 {anotacaoSexta.map(anotacoes => (
                     <li key={anotacoes._id}>
                         <div className='anotacao'>
+                            {concluido.concluido == true ? 
+                                <button 
+                                    className='botaoMarcarConcluir'
+                                    title='Tarefa concluida!'
+                                >
+                                    <BsPatchCheck/> 
+                                </button>: 
+                                <button 
+                                    onClick={() => concluirTarefa(anotacoes._id)}    
+                                    className='botaoConcluida'
+                                    title='Concluir'
+                                >
+                                    <MdPriorityHigh/>
+                                </button>
+                            }
                             <span>{anotacoes.nomeTarefa}</span>
 
                             <div className='buttonsAnnotationsContainer'>
                                 <Link to={`/sexta/anotacoes/${anotacoes._id}`}>
                                     <button 
                                         className='editarAnotacao'
-                                        title='Editar'>
+                                        title='Editar'
+                                    >
                                         <MdEdit/>
                                     </button>
                                 </Link>
@@ -64,8 +112,9 @@ export default function AnnotationsFriday(){
                                 <button 
                                     className='excluirAnotacao'
                                     onClick={() => excluirAnotacoes(anotacoes._id)} 
-                                    title='Excluir'>
-                                    <BsFillTrashFill/>
+                                    title='Excluir'
+                                >
+                                    <TiDelete/>
                                 </button>
                             </div>
 

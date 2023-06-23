@@ -7,6 +7,7 @@ export default function AllTimesTuesday(){
     const [manhaTerca,setManhaTerca] = useState([])
     const [tardeTerca,setTardeTerca] = useState([])
     const [noiteTerca,setNoiteTerca] = useState([])
+    const [periodoAgora,setPeriodoAgora] = useState('')
 
     useEffect(() => {
         async function lerManhaTerca(){

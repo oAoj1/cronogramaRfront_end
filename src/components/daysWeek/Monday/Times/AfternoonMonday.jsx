@@ -16,10 +16,24 @@ export default function AftenoonMonday(){
 
         lerTardeSegunda()
 
+        var data = new Date()
+        let hora = data.getHours()
+        let tarde = document.getElementById('tarde')
+  
+        if(hora >= 12 && hora <= 17){
+            tarde.style.background = '#6ef02e'
+            tarde.style.border = '1px solid #000'
+            
+        }else{
+            tarde.style.background = 'tranparent'
+            tarde.style.border = '1px solid #000'
+
+        }
+
     },[])
 
     return(
-        <ul className='afternoonList'>
+        <ul className='afternoonList' id='tarde'>
             {tardeSegunda.map(tarde => (
                 <li key={tarde._id}>
                     <DayTodayWeek

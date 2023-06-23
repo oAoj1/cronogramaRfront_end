@@ -2,7 +2,7 @@
 import './PagesDays.css'
 import { useEffect, useState } from 'react'
 
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react"
 import LoginButton from '../auth/login.jsx'
 import LogoutButton from '../auth/logout.jsx'
 
@@ -60,12 +60,6 @@ export default function DayToday(){
         setDia(diaHoje)
         
     },[])
-
-
-    function enviarSenha(event){
-        event.preventDefault()
-
-    }
 
     return(
         <div>

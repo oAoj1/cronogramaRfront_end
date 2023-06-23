@@ -169,6 +169,8 @@
 }
 
 .anotacoesLista li{
+    display: flex;
+    align-items: center;
     margin: 0.75rem 0.85rem;
     border: 1px solid #cccc;
     padding: 0.5rem;
@@ -176,4 +178,5 @@
 
 .anotacao{
     display: flex;
+    align-items: center;
 }
