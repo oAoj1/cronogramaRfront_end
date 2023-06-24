@@ -47,8 +47,11 @@ export default function DayTodayWeek({tipoTarefa,nomeTarefa,diaSemana,id,conclui
         var diaHoje = data.getDay()
         
         if(diaHoje == 0){
-            diaHoje = 'Domingo'
-            concluido = false
+            await api.post(`/segunda/${id}`)
+            await api.post(`/terca/${id}`)
+            await api.post(`/quarta/${id}`)
+            await api.post(`/quinta/${id}`)
+            await api.post(`/sexta/${id}`)
         }
 
     },[])
